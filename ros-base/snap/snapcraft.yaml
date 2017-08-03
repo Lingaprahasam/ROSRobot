@@ -21,8 +21,3 @@ parts:
     rosdistro: kinetic
     include-roscore: true
     catkin-packages: []
-
-apps:
-  roscore:
-    command: roscore
-    plugs: [network, network-bind]
