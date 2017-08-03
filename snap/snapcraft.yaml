@@ -2,7 +2,7 @@ name: rosrobot-pi # you probably want to 'snapcraft register <name>'
 version: '0.0' # just for humans, typically '1.2+git' or '1.3.2'
 summary: snap for ros robot on pi2 # 79 char long summary
 description: |
-  This is a snap for pi2 4WD robot. Implemented using ROS kinetic.
+  This is a snap for pi2 4WD robot using ROS kinetic.
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: devmode # use 'strict' once you have the right plugs and slots
 
