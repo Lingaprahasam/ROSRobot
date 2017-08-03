@@ -1,0 +1,28 @@
+name: rosrobot-pi # you probably want to 'snapcraft register <name>'
+version: '0.0' # just for humans, typically '1.2+git' or '1.3.2'
+summary: snap for ros robot on pi2 # 79 char long summary
+description: |
+  This is a snap for pi2 4WD robot. Implemented using ROS kinetic.
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+slots:
+  # Consumers will need to access the PYTHONPATH as well as various libs
+  # contained in this snap, so share the entire $SNAP, not just the ROS
+  # workspace.
+  ros-base:
+    content: ros-base-v1
+    interface: content
+    read: [/]
+
+parts:
+  ros-base:
+    plugin: catkin
+    rosdistro: kinetic
+    include-roscore: true
+    catkin-packages: []
+
+apps:
+  roscore:
+    command: roscore
+    plugs: [network, network-bind]
