@@ -1,3 +1,4 @@
+# Catkin Workspace
 /build
 /devel
 /devel_isolated
@@ -6,5 +7,16 @@
 /logs
 /.catkin_tools
 /.vscode
+
+# ROS snapcraft build
+/ros-base/parts
+/ros-base/prime
+/ros-base/ros-base_1.0_amd64.snap
+/ros-base/snap/.snapcraft
+/ros-base/stage/
+
+# Other repositories
+/pi2-gadget
+
 .ycm_extra_conf.py
 
