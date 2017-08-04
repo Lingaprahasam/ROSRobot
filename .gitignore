@@ -1,12 +1,12 @@
 # Catkin Workspace
-/build
-/devel
-/devel_isolated
-/el
-/el_isolated
-/logs
-/.catkin_tools
-/.vscode
+/ros-app/build
+/ros-app/devel
+/ros-app/devel_isolated
+/ros-app/el
+/ros-app/el_isolated
+/ros-app/logs
+/ros-app/.catkin_tools
+/ros-app/.vscode
 
 # ======================
 # ROS snapcraft build
