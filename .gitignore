@@ -8,15 +8,25 @@
 /.catkin_tools
 /.vscode
 
+# ======================
 # ROS snapcraft build
+# ======================
+# ros-base
 /ros-base/parts
 /ros-base/prime
 /ros-base/ros-base_1.0_amd64.snap
 /ros-base/snap/.snapcraft
 /ros-base/stage/
 
+# ros-app
+/ros-app/parts
+/ros-app/prime
+/ros-app/ros-app_1.0_amd64.snap
+/ros-app/snap/.snapcraft
+/ros-app/stage/
+/ros-app/ros-base.tar.bz2
+
 # Other repositories
-/pi2-gadget
 
 .ycm_extra_conf.py
 
