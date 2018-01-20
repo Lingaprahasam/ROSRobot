@@ -32,8 +32,8 @@ parts:
     include-roscore: false
     underlay:
       # Build-time location of the underlay
-      # build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
-      build-path: /opt/ros/kinetic
+      build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
+      #build-path: /opt/ros/kinetic
 
       # Run-time location of the underlay
       run-path: $SNAP/ros-base/opt/ros/kinetic
