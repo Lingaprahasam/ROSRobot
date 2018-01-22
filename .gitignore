@@ -9,6 +9,16 @@
 /ros-app/.catkin_tools
 /ros-app/.vscode
 
+# ros-app-py
+/ros-app-py/build
+/ros-app-py/devel
+/ros-app-py/devel_isolated
+/ros-app-py/el
+/ros-app-py/el_isolated
+/ros-app-py/logs
+/ros-app-py/.catkin_tools
+/ros-app-py/.vscode
+
 # rosrobot-hello
 /rosrobot-hello/build
 /rosrobot-hello/devel
