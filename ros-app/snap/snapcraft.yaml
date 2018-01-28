@@ -3,7 +3,7 @@ version: '1.0'
 grade: stable
 confinement: strict
 summary: ROS App Snap
-description: Contains talker ROS packages and a .launch file.
+description: Contains talker ROS packages and a talker.launch file.
 
 plugs:
   # Mount the content shared from ros-base into $SNAP/ros-base
