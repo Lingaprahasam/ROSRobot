@@ -41,7 +41,7 @@ parts:
       # Run-time location of the underlay
       run-path: $SNAP/ros-base/opt/ros/kinetic
     catkin-packages:      
-      - listener_py
+      - listener
     after: [ros-base]
 
   run-system:
