@@ -3,7 +3,7 @@ version: '1.0'
 grade: stable
 confinement: strict
 summary: ROS App Py Snap
-description: Contains listener ROS packages and a .launch file.
+description: Contains listener ROS packages and a listener.launch file.
 
 plugs:
   # Mount the content shared from ros-base into $SNAP/ros-base
