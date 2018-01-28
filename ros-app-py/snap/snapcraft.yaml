@@ -1,9 +1,9 @@
-name: ros-app
+name: ros-app-py
 version: '1.0'
 grade: stable
 confinement: strict
-summary: ROS App Snap
-description: Contains talker_py/listener_py ROS packages and a .launch file.
+summary: ROS App Py Snap
+description: Contains listener_py ROS packages and a .launch file.
 
 plugs:
   # Mount the content shared from ros-base into $SNAP/ros-base
@@ -26,18 +26,21 @@ parts:
     # This is only used for building-- filter it out of the final snap.
     prime: [-*]
 
-  ros-app:
+  ros-app-py:
     plugin: catkin
     rosdistro: kinetic
     include-roscore: false
     underlay:
       # Build-time location of the underlay
-      build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
+      # On Pi platform
+      #build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
+            
+      # On Ubuntu machine
+      build-path: /opt/ros/kinetic
 
       # Run-time location of the underlay
       run-path: $SNAP/ros-base/opt/ros/kinetic
-    catkin-packages:
-      - talker_py
+    catkin-packages:      
       - listener_py
     after: [ros-base]
 
