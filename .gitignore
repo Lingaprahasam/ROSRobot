@@ -56,6 +56,14 @@
 /rosrobot-hello/stage/
 /rosrobot-hello/ros-base.tar.bz2
 
+# ros-app-py
+/ros-app-py/parts
+/ros-app-py/prime
+/ros-app-py/ros-app-py_1.0_amd64.snap
+/ros-app-py/snap/.snapcraft
+/ros-app-py/stage/
+/ros-app-py/ros-base.tar.bz2
+
 # Other repositories
 
 .ycm_extra_conf.py
