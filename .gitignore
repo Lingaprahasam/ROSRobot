@@ -46,7 +46,7 @@
 /ros-app/ros-app_1.0_amd64.snap
 /ros-app/snap/.snapcraft
 /ros-app/stage/
-/ros-app/ros-base.tar.bz2
+#/ros-app/ros-base.tar.bz2
 
 # rosrobot-hello
 /rosrobot-hello/parts
