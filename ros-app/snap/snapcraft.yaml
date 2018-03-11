@@ -3,7 +3,7 @@ version: '1.0'
 grade: stable
 confinement: strict
 summary: ROS App Snap
-description: Contains talker ROS packages and a talker.launch file.
+description: Contains talker/listener ROS packages and a .launch file.
 
 plugs:
   # Mount the content shared from ros-base into $SNAP/ros-base
@@ -32,16 +32,12 @@ parts:
     include-roscore: false
     underlay:
       # Build-time location of the underlay
-      # On Pi Platform
-      #build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
-      
-      # On Ubuntu machine
-      build-path: /opt/ros/kinetic
+      build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
 
       # Run-time location of the underlay
       run-path: $SNAP/ros-base/opt/ros/kinetic
     catkin-packages:
-      - talker      
+      - talker
     after: [ros-base]
 
   run-system:

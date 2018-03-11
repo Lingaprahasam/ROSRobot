@@ -1,3 +1,0 @@
-<launch>
-  <node name="listener" pkg="listener" type="listener.py" />
-</launch>

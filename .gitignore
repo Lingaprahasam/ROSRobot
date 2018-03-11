@@ -8,16 +8,18 @@
 /ros-app/logs
 /ros-app/.catkin_tools
 /ros-app/.vscode
+/ros-app/ros-base.tar.bz2
+/ros-app/.catkin_workspace
 
-# ros-app-py
-/ros-app-py/build
-/ros-app-py/devel
-/ros-app-py/devel_isolated
-/ros-app-py/el
-/ros-app-py/el_isolated
-/ros-app-py/logs
-/ros-app-py/.catkin_tools
-/ros-app-py/.vscode
+# ros-talker-listner
+/ros-talker-listner/build
+/ros-talker-listner/devel
+/ros-talker-listner/devel_isolated
+/ros-talker-listner/el
+/ros-talker-listner/el_isolated
+/ros-talker-listner/logs
+/ros-talker-listner/.catkin_tools
+/ros-talker-listner/.vscode
 
 # rosrobot-hello
 /rosrobot-hello/build
@@ -48,6 +50,14 @@
 /ros-app/stage/
 #/ros-app/ros-base.tar.bz2
 
+# ros-talker-listner
+/ros-talker-listner/parts
+/ros-talker-listner/prime
+/ros-talker-listner/ros-talker-listener_0.1_amd64.snap
+/ros-talker-listner/snap/.snapcraft
+/ros-talker-listner/stage/
+/ros-talker-listner/ros-base.tar.bz2
+
 # rosrobot-hello
 /rosrobot-hello/parts
 /rosrobot-hello/prime
@@ -56,13 +66,7 @@
 /rosrobot-hello/stage/
 /rosrobot-hello/ros-base.tar.bz2
 
-# ros-app-py
-/ros-app-py/parts
-/ros-app-py/prime
-/ros-app-py/ros-app-py_1.0_amd64.snap
-/ros-app-py/snap/.snapcraft
-/ros-app-py/stage/
-/ros-app-py/ros-base.tar.bz2
+
 
 # Other repositories
 
