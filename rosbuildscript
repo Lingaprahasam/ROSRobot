@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo ==============
+echo build ros-app
+echo ==============
+cd ros-app
+sudo rmdir -frv build
+sudo rmdir -frv devel
+catkin_make
+echo ======================
+echo build success ros-app
+echo ======================

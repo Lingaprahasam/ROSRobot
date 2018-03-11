@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# echo ====================
+# echo snapping.. ros-base
+# echo ====================
+cd ros-base
+# sudo rm -frv parts
+# sudo rm -frv prime
+# snapcraft
+# echo =======================================
+# echo successfully created snap for ros-base
+# echo =======================================
+# echo
+# echo ===========================
+# echo tar ros-base staging area
+# echo ===========================
+# tar czf ros-base.tar.bz2 stage/ 
+# echo =================================
+# echo copy ros-base.tar.bz2 to ros-app
+# echo =================================
+# cp ros-base.tar.bz2 ../ros-app
+# echo
+echo ====================
+echo snapping.. ros-app
+echo ====================
+cd ros-app
+sudo rm -frv parts
+sudo rm -frv prime
+sudo rm -frv stage
+# snapcraft clean ros-app -s pull
+snapcraft
+echo =======================================
+echo successfully created snap for ros-app
+echo =======================================
