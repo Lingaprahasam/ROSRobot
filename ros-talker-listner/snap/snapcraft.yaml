@@ -1,0 +1,67 @@
+name: ros-talker-listener
+version: 0.1
+summary: ROS Talker/Listener Example
+description: |
+  This example requires roscore as well as a talker and listener.
+
+grade: devel
+confinement: devmode
+
+parts:
+
+  # ros-tutorials:
+  #   source: https://github.com/ros/ros_tutorials.git
+  #   source-branch: kinetic-devel
+  #   plugin: catkin
+  #   rosdistro: kinetic
+  #   source-space: roscpp_tutorials/
+  #   catkin-packages: [roscpp_tutorials]
+
+
+  # The `source` here is the tarred staging area of the ros-base snap.
+  ros-base:
+    plugin: dump
+    source: ros-base.tar.bz2
+
+    # This is only used for building-- filter it out of the final snap.
+    prime: [-*]
+
+  ros-tutorials:
+    source: https://github.com/ros/ros_tutorials.git
+    source-branch: kinetic-devel
+    plugin: catkin
+    rosdistro: kinetic
+    include-roscore: false
+    source-space: roscpp_tutorials/
+    underlay:
+      # Build-time location of the underlay
+      # On Pi Platform
+      build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
+      
+      # On Ubuntu machine
+      # build-path: /opt/ros/kinetic
+
+      # Run-time location of the underlay
+      run-path: $SNAP/ros-base/opt/ros/kinetic
+    # list of catking packages in the snap
+    catkin-packages: [roscpp_tutorials]
+    after: [ros-base]
+
+  # We can't just use roslaunch now, since that's contained in the
+  # underlay. This part will tweak the environment a little to
+  # utilize the underlay.
+  run-system:
+    plugin: dump
+    stage: [bin/run-system]
+    prime: [bin/run-system]
+
+  # We need to create the $SNAP/ros-base mountpoint for the content
+  # being shared.
+  mountpoint:
+    plugin: nil
+    install: mkdir $SNAPCRAFT_PART_INSTALL/ros-base
+
+
+apps:
+  run:
+    command: run-system
