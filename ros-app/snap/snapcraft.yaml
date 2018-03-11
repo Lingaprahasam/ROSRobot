@@ -27,9 +27,12 @@ parts:
     prime: [-*]
 
   ros-app:
+    source: https://github.com/Lingaprahasam/ROSRobot.git
+    source-branch: kinetic
     plugin: catkin
     rosdistro: kinetic
     include-roscore: false
+    source-space: ros-app/
     underlay:
       # Build-time location of the underlay
       build-path: $SNAPCRAFT_STAGE/opt/ros/kinetic
