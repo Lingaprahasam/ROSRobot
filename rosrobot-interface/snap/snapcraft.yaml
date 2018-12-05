@@ -21,4 +21,4 @@ parts:
     
 apps:
   robotstate:
-    command: robotstate statecmd
+    command: python src/robotstate/src/robotstate.py statecmd
