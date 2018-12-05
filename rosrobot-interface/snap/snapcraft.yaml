@@ -21,4 +21,4 @@ parts:
     
 apps:
   robotstate:
-    command: python robotstate statecmd
+    command: robotstate statecmd
