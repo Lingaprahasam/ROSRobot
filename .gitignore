@@ -29,6 +29,16 @@
 /rosrobot-hello/.catkin_tools
 /rosrobot-hello/.vscode
 
+# rosrobot-interface
+/rosrobot-interface/build
+/rosrobot-interface/devel
+/rosrobot-interface/devel_isolated
+/rosrobot-interface/el
+/rosrobot-interface/el_isolated
+/rosrobot-interface/logs
+/rosrobot-interface/.catkin_tools
+/rosrobot-interface/.vscode
+
 # ======================
 # ROS snapcraft build
 # ======================
@@ -55,6 +65,14 @@
 /rosrobot-hello/snap/.snapcraft
 /rosrobot-hello/stage/
 /rosrobot-hello/ros-base.tar.bz2
+
+# rosrobot-interface
+/rosrobot-interface/parts
+/rosrobot-interface/prime
+/rosrobot-interface/rosrobot-interface.0_amd64.snap
+/rosrobot-interface/snap/.snapcraft
+/rosrobot-interface/stage/
+/rosrobot-interface/ros-base.tar.bz2
 
 # ros-app-py
 /ros-app-py/parts
