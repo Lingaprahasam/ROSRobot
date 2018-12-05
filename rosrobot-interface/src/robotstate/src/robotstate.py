@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import rospy
+# import rospy
 
 startcmd = "start"
 stopcmd = "stop"
@@ -14,17 +14,19 @@ def statecmd():
 
         # Takes care of upper case and mixed case and endof line space character
         if (startcmd == state.lower().rstrip() or stopcmd == state.lower().rstrip()):
-            if rospy.has_param('state'):
-                # Write it to parameter name 'state'
-                rospy.set_param('state', state)        
-            else:
-                print ('Invalid parameter "state"')        
+            # if rospy.has_param('state'):
+            #     # Write it to parameter name 'state'
+            #     rospy.set_param('state', state)        
+            # else:
+                # print ('Invalid parameter "state"')
+
+            print ('Received command')        
         else:
             print ('Invalid command')
 
 if __name__ == '__main__':
 
-    try:
+    # try:
         statecmd()
-    except rospy.ROSInterruptException:
-        pass
+    # except rospy.ROSInterruptException:
+    #     pass
