@@ -1,0 +1,25 @@
+  GNU nano 7.2        /etc/netplan/50-cloud-init.yaml
+# This file is generated from information provided by the datasource.># to it will not persist across an instance reboot.  To disable cloud># network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the follo># network: {config: disabled}
+network:
+    ethernets:
+        eth0:
+            dhcp4: false
+            addresses: [192.168.0.59/24]
+            match:
+                macaddress: d8:3a:dd:e5:fb:08
+            set-name: eth0
+    version: 2
+    renderer: networkd
+    wifis:
+      wlan0:
+        dhcp4: false
+        addresses: [192.168.0.60/24]
+        access-points:
+          "COMHEM_8843ba":
+              password: "q2m2mdzm"
+        nameservers:
+          addresses: [192.168.0.1, 8.8.8.8]
+        routes:
+          - to: default
+            via: 192.168.0.1
