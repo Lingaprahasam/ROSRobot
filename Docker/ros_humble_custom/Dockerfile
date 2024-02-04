@@ -36,3 +36,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     
 # pip install
 RUN pip install setuptools==58.2.0
+
+# source ros distro setup.bash
+RUN echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
