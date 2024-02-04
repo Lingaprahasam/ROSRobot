@@ -1,2 +1,6 @@
 #!/bin/bash
-docker build -t ros-humble-custom ../Docker/ros_humble_custom/
+# Define variables
+USER_NAME="rosadmin"
+
+docker rmi ros-humble-custom:latest
+docker build -t ros-humble-custom /home/$USER_NAME/ROSRobot/Docker/ros_humble_custom/
