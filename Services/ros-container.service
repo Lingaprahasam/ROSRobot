@@ -1,0 +1,12 @@
+[Unit]
+Description=ros2-container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run -v /home/rosadmin/ROSRobot/ros2_ws:/opt/ros2_ws --name ros2-container ros-humble-custom:latest
+ExecStop=/usr/bin/docker stop -t 2 ros2-container
+
+[Install]
+WantedBy=default.target
