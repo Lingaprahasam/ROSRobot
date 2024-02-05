@@ -1,0 +1,8 @@
+/build
+/install
+/log
+
+/src/py_pubsub/test
+/src/py_srvcli/test
+/src/python_parameters/test
+/src/tutorial_interfaces/test
