@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run -v /home/rosadmin/ROSRobot/ros2_ws:/opt/ros2_ws --name ros2-container ros-humble-custom:latest
+ExecStart=/usr/bin/docker run --privileged --device=/dev/gpiomem0 -v /home/rosadmin/ROSRobot/ros2_ws:/opt/ros2_ws --name ros2-container ros-humble-custom:latest tail -f /dev/null
 ExecStop=/usr/bin/docker stop -t 2 ros2-container
 
 [Install]
