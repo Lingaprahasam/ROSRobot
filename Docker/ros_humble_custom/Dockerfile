@@ -29,13 +29,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-ros-base=0.10.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
+# User permission from root to user
+# By default docker image will run from root
+# When host folder is mapped to docker image and run by the conatiner
+# the permission will be changed as root
+ARG USERNAME=ros
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $USERNAME \
+  && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
+  && mkdir /home/$USERNAME/.config && chown $USER_UID:$USER_GID /home/$USERNAME/.config
+
 # install other packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
-    wget
+    wget \
+    nano
     
 # pip install
 RUN pip install setuptools==58.2.0
 
 # source ros distro setup.bash
 RUN echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
+#RUN echo 'source /opt/ros2_ws/install/setup.bash' >> ~/.bashrc
