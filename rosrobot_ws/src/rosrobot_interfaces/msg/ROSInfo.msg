@@ -1,0 +1,2 @@
+string rosdistro
+string ros_domain_id
