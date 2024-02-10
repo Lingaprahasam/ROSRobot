@@ -41,15 +41,32 @@ RUN groupadd --gid $USER_GID $USERNAME \
   && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
   && mkdir /home/$USERNAME/.config && chown $USER_UID:$USER_GID /home/$USERNAME/.config
 
+# Setup sudo
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  sudo \
+  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+  && chmod 0440 /etc/sudoers.d/$USERNAME \
+  && rm -rf /var/lib/apt/lists/*
+
+# source ros distro setup.bash
+# ENTRYPOINT ["/bin/bash", "ros_entrypoint.sh"]
+RUN echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
+
 # install other packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     wget \
-    nano
+    nano \
+    # wiringpi \
+    python3-gpiozero \
+    python3-pigpio \
+    && rm -rf /var/lib/apt/lists/*
     
 # pip install
 RUN pip install setuptools==58.2.0
 
-# source ros distro setup.bash
-RUN echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
-#RUN echo 'source /opt/ros2_ws/install/setup.bash' >> ~/.bashrc
+# install pi gpio packages
+RUN wget --no-check-certificate https://project-downloads.drogon.net/wiringpi-latest.deb
+# continue executing even if command fails
+RUN dpkg -i wiringpi-latest.deb || true
