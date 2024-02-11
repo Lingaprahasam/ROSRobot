@@ -30,14 +30,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # ROS2 environment variables
+# This setting still belong to root
 ENV ROS_SETUP_SCRIPT=/opt/ros/humble/setup.bash
 ENV ROS_DOMAIN_ID=10
 
-
 # source ros distro setup.bash
 # ENTRYPOINT ["/bin/bash", "ros_entrypoint.sh"]
-RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-RUN echo "source /opt/rosrobot_ws/install/setup.bash" >> ~/.bashrc
 
 # User permission from root to user
 # By default docker image will run from root
@@ -50,6 +48,9 @@ ARG USER_GID=$USER_UID
 RUN groupadd --gid $USER_GID $USERNAME \
   && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
   && mkdir /home/$USERNAME/.config && chown $USER_UID:$USER_GID /home/$USERNAME/.config
+
+RUN echo "source /opt/ros/humble/setup.bash" >> /home/$USERNAME/.bashrc
+RUN echo "source /opt/rosrobot_ws/install/setup.bash" >> /home/$USERNAME/.bashrc
 
 # Setup sudo
 RUN apt-get update \
@@ -72,7 +73,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # pip install
 RUN pip install setuptools==58.2.0
 
-# install pi gpio packages
-RUN wget --no-check-certificate https://project-downloads.drogon.net/wiringpi-latest.deb
-# continue executing even if command fails
-RUN dpkg -i wiringpi-latest.deb || true
+# # install pi gpio packages
+# RUN wget --no-check-certificate https://project-downloads.drogon.net/wiringpi-latest.deb
+# # continue executing even if command fails
+# RUN dpkg -i wiringpi-latest.deb || true
