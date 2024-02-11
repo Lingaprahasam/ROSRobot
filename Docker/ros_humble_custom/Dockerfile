@@ -29,6 +29,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-ros-base=0.10.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
+# ROS2 environment variables
+ENV ROS_SETUP_SCRIPT=/opt/ros/humble/setup.bash
+ENV ROS_DOMAIN_ID=10
+
+
+# source ros distro setup.bash
+# ENTRYPOINT ["/bin/bash", "ros_entrypoint.sh"]
+RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+RUN echo "source /opt/rosrobot_ws/install/setup.bash" >> ~/.bashrc
+
 # User permission from root to user
 # By default docker image will run from root
 # When host folder is mapped to docker image and run by the conatiner
@@ -48,10 +58,6 @@ RUN apt-get update \
   && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
   && chmod 0440 /etc/sudoers.d/$USERNAME \
   && rm -rf /var/lib/apt/lists/*
-
-# source ros distro setup.bash
-# ENTRYPOINT ["/bin/bash", "ros_entrypoint.sh"]
-RUN echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
 
 # install other packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
