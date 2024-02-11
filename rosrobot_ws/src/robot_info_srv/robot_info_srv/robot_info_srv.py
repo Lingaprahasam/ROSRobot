@@ -15,6 +15,7 @@ class RobotInfoService(Node):
     def __init__(self):
         super().__init__('robot_info_service')
         self.srv = self.create_service(RobotInfoSrv, 'robot_info_service', self.robot_info_service_callback)
+        self.get_logger().info('robot_info_service is running')
 
     def robot_info_service_callback(self, request, response):
         self.system_info_msg = SystemInfo()
@@ -107,7 +108,11 @@ class ROSInformation():
 
         _rosInfoMsg = ROSInfo()
         _rosInfoMsg.rosdistro = _rosDistro
-        _rosInfoMsg.ros_domain_id = _ros_domain_id
+        if(_ros_domain_id != None):
+            _rosInfoMsg.ros_domain_id = int(_ros_domain_id)
+        else:
+            _rosInfoMsg.ros_domain_id = 0
+        
 
         return _rosInfoMsg
 

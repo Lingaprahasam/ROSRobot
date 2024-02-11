@@ -11,7 +11,7 @@ class RobotInfoClientAsync(Node):
         super().__init__('robot_info_client_async')
         self.cli = self.create_client(RobotInfoSrv, 'robot_info_service')
         while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('robot_info_service is not available, waiting again...')
         self.req = RobotInfoSrv.Request()
 
     def send_request(self):
