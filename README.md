@@ -1,6 +1,6 @@
 # ROSRobot
 
-## SSH Setup
+1. ## SSH Setup
 * Create ssh keys using Linux/Ubuntu client machine 
     * ***ssh-keygen***
 
