@@ -20,4 +20,4 @@ Now it is possible to ssh the pi from client machine without password authentica
 * open file authorized_keys under ~/.ssh folder
      * ***sudo nano authorized_keys***
 * paste and save the id_rsa.pub content, save and exit
-* Now pi is accessible without username and password
+* Now pi is accessible without username and password 
